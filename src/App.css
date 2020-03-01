@@ -48,3 +48,17 @@
   border-style: solid;
 }
 
+.btn-complete{
+  padding: 5px;
+  color: white;
+  background-color: hotpink;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+}
+
+.btn-complete:hover{
+  color: white;
+  background-color: cornflowerblue;
+}
+
