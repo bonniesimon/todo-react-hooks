@@ -48,17 +48,32 @@
   border-style: solid;
 }
 
-.btn-complete{
+
+.btn{
   padding: 5px;
-  color: white;
-  background-color: hotpink;
   outline: none;
   border: none;
   border-radius: 5px;
+  margin: 0.3rem 0.4rem;
+  transition: 0.5ms ease;
+}
+.btn-complete{
+  color: white;
+  background-color: hotpink;
 }
 
 .btn-complete:hover{
   color: white;
-  background-color: cornflowerblue;
+  background-color: rgb(19, 196, 19);
+}
+
+.btn-delete{  
+  padding: 8px;
+  background-color: hotpink;
+}
+
+.btn-delete:hover{
+  background-color: crimson;
+  color: white;
 }
 

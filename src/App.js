@@ -1,19 +1,26 @@
 import React, { useState } from 'react';
 import './App.css';
 
-const Todo = ({todo,index,completeTodo}) => {
+
+/**
+ * *<Todo/> Component
+ */
+const Todo = ({todo,index,completeTodo,deleteTodo}) => {
   return(
   <div className="todo" style = {{textDecoration:todo.isCompleted?"line-through":""}}>
     {todo.text}
     <div>
-    <button className = "btn-complete" onClick = {() => completeTodo(index) }>Completed</button>
+    <button className = "btn btn-complete" onClick = {() => completeTodo(index) }>Completed</button>
+    <button className = "btn btn-delete" onClick = {() => deleteTodo(index) }>X</button>
     </div>
   </div>
 
   )
 }
 
-
+/**
+ * *<TodoForm/> Component
+ */
 const TodoForm = ({addTodo}) => {
   const [value, setValue] = useState("");
 
@@ -28,15 +35,18 @@ const TodoForm = ({addTodo}) => {
     <form onSubmit = {handleSubmit}>
       <input 
         type="text"
+        placeholder="Type todo here"
         value = {value}
-        onChange = {e => setValue(e.target.value)}
         className = "input"
+        onChange = {e => setValue(e.target.value)}
         />
     </form>
   )
 }
 
-
+/**
+ * *<App/> Component
+ */
 function App() {
   const [todos, setTodos] = useState([
     {
@@ -69,6 +79,16 @@ function App() {
     setTodos(newTodos);
   }
 
+  const deleteTodo = deleteIndex => {
+    let newTodos = [...todos];
+    newTodos = newTodos.filter(item => { 
+      if(item != newTodos[deleteIndex]){
+        return item;
+      }
+    })
+    setTodos(newTodos);
+  }
+
   return (
     <div className="app">
       <div className="todo-list">
@@ -78,6 +98,7 @@ function App() {
             index = {index}
             todo = {todo}
             completeTodo = {completeTodo}
+            deleteTodo = {deleteTodo}
           />
         ))}
         <TodoForm addTodo = {addTodo} />
