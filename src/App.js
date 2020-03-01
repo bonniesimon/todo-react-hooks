@@ -33,7 +33,7 @@ const TodoForm = ({addTodo}) => {
 
 function App() {
   const [todos, setTodos] = useState([
-    {text: "Meet linda maam"},
+    {text: "JS to meet me"},
     {text: "Learn React"},
     {text : "Learn Photoshop"}
   ]);
