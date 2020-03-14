@@ -48,7 +48,11 @@ const TodoForm = ({addTodo}) => {
  * *<App/> Component
  */
 function App() {
-  const [todos, setTodos] = useState([
+  const [todos, setTodos] = useState([]);
+
+  /**
+  * todos Example
+  * 
     {
       text: "Learn React",
       isCompleted:false
@@ -61,7 +65,8 @@ function App() {
       text : "Learn Photoshop",
       isCompleted:false
     }
-  ]);
+   
+  */
 
 
   const addTodo = (value) => {
